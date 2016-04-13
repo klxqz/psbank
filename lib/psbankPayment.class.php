@@ -83,7 +83,7 @@ class psbankPayment extends waPayment implements waIPayment {
             'EMAIL' => '',
             'TIMESTAMP' => gmdate('YmdHis'),
             'NONCE' => $this->generateNonce(),
-            'BACKREF' => wa()->getRootUrl(true, true),
+            'BACKREF' => wa()->getRouteUrl('shop/frontend', true),
             'P_SIGN' => null,
         );
 
