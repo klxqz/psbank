@@ -35,7 +35,7 @@ class psbankPayment extends waPayment implements waIPayment {
       }
 
       return $control;
-      } 
+      }
      */
 
     public function allowedCurrency() {
@@ -83,7 +83,7 @@ class psbankPayment extends waPayment implements waIPayment {
             'EMAIL' => '',
             'TIMESTAMP' => gmdate('YmdHis'),
             'NONCE' => $this->generateNonce(),
-            'BACKREF' => wa()->getRouteUrl('shop/frontend', true),
+            'BACKREF' => $this->getAdapter()->getBackUrl(waAppPayment::URL_SUCCESS),
             'P_SIGN' => null,
         );
 
