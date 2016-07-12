@@ -67,7 +67,7 @@ class psbankPayment extends waPayment implements waIPayment {
             throw new waException('Ошибка оплаты. Валюта не поддерживается');
         }
 
-
+        $backref = $this->getAdapter()->getBackUrl(waAppPayment::URL_SUCCESS, array('order_id' => $order['id']));
 
         $data = array(
             'AMOUNT' => number_format($order->total, 2, '.', ''),
@@ -81,7 +81,7 @@ class psbankPayment extends waPayment implements waIPayment {
             'EMAIL' => '',
             'TIMESTAMP' => gmdate('YmdHis'),
             'NONCE' => $this->generateNonce(),
-            'BACKREF' => $this->getAdapter()->getBackUrl(waAppPayment::URL_SUCCESS),
+            'BACKREF' => $backref, //wa()->getRootUrl(true, true), //$this->getAdapter()->getBackUrl(waAppPayment::URL_SUCCESS),
             'P_SIGN' => null,
         );
 
