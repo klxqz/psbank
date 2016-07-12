@@ -18,25 +18,23 @@ class psbankPayment extends waPayment implements waIPayment {
         'RUB',
     );
 
-    /*
-      protected function initControls() {
-      $this->registerControl('ResponseUrlControl');
+    protected function initControls() {
+        $this->registerControl('ResponseUrlControl');
 
-      parent::initControls();
-      }
+        parent::initControls();
+    }
 
-      public static function settingResponseUrlControl($name, $params = array()) {
-      $instance = $params['instance'];
+    public static function settingResponseUrlControl($name, $params = array()) {
+        $instance = $params['instance'];
 
-      if ((int) $instance->key) {
-      $control = sprintf('<strong>%s?app_id=%s&merchant_id=%d</strong>', $instance->getRelayUrl(), wa()->getApp(), $instance->key);
-      } else {
-      $control = '<strong>Корректный URL будет доступен после сохранения настроек</strong>';
-      }
+        if ((int) $instance->key) {
+            $control = sprintf('<strong>%s?app_id=%s&merchant_id=%d</strong>', $instance->getRelayUrl(), wa()->getApp(), $instance->key);
+        } else {
+            $control = '<strong>Корректный URL будет доступен после сохранения настроек</strong>';
+        }
 
-      return $control;
-      }
-     */
+        return $control;
+    }
 
     public function allowedCurrency() {
         return $this->currency;
@@ -75,7 +73,7 @@ class psbankPayment extends waPayment implements waIPayment {
             'AMOUNT' => number_format($order->total, 2, '.', ''),
             'CURRENCY' => $order->currency_id,
             'ORDER' => str_pad($order->id, 6, '0', STR_PAD_LEFT),
-            'DESC' => '',
+            'DESC' => 'Оплата заказа ' . shopHelper::encodeOrderId($order->id),
             'TERMINAL' => $this->TERMINAL,
             'TRTYPE' => '1', // оплата
             'MERCH_NAME' => wa()->accountName(),

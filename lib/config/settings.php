@@ -25,10 +25,9 @@ return array(
         'description' => '',
         'control_type' => 'checkbox',
     ),
-    /*
     'response_url' => array(
         'title' => 'URL скрипта',
         'control_type' => 'ResponseUrlControl',
         'description' => 'URL CGI-скрипта, обрабатывающего уведомления на запросы проведения операций.<br/> Скопируйте данный адрес и передайте его сотрудникам банка.',
-    ),*/
+    ),
 );

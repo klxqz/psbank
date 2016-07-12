@@ -6,6 +6,6 @@ return array(
     'icon' => 'img/psbank16.png',
     'logo' => 'img/psbank.png',
     'vendor' => '985310',
-    'version' => '1.0.0',
+    'version' => '1.0.1',
     'type' => waPayment::TYPE_ONLINE,
 );
